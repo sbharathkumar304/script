@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    tools{
+        maven 'MAVEN_HOME' 
+    }
+    stages{
+        stage('git'){
+            steps{
+            git 'https://github.com/sbharathkumar304/script.git'
+                }
+        }    
+        
+        stage('maven'){
+            steps{
+                   sh 'mvn package'
+                }
+        }
+        
+        }
+}
